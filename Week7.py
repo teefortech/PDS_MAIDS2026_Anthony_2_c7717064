@@ -1,3 +1,4 @@
+import random
 import warnings
 
 import pandas as pd
@@ -5,6 +6,7 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
+
 warnings.filterwarnings('ignore')
 product_data=[['e-book', 2000], ['plants', 6000], ['Pencil', 3000]]
 #2d list, similar to 2d array
@@ -130,3 +132,87 @@ x = np.array([0, 1, 2, 3])
 y = np.array([3, 8, 1, 10])
 plt.subplot(2, 1, 1)
 plt.plot(x,y)
+
+# Draw 6 plots:
+x = np.array([0, 1, 2, 3])
+y = np.array([3, 8, 1, 10])
+plt.subplot(2, 3, 1)
+plt.plot(x,y)
+x = np.array([0, 1, 2, 3])
+y = np.array([10, 20, 30, 40])
+plt.subplot(2, 3, 2)
+plt.plot(x,y)
+x = np.array([0, 1, 2, 3])
+y = np.array([3, 8, 1, 10])
+plt.subplot(2, 3, 3)
+plt.plot(x,y)
+x = np.array([0, 1, 2, 3])
+y = np.array([10, 20, 30, 40])
+plt.subplot(2, 3, 4)
+plt.plot(x,y)
+x = np.array([0, 1, 2, 3])
+y = np.array([3, 8, 1, 10])
+plt.subplot(2, 3, 5)
+plt.plot(x,y)
+x = np.array([0, 1, 2, 3])
+y = np.array([10, 20, 30, 40])
+plt.subplot(2, 3, 6)
+plt.plot(x,y)
+plt.show()
+
+# With Pyplot, you can use the scatter() function to draw a scatter plot
+x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])
+y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])
+plt.scatter(x, y, color = 'hotpink')
+x = np.array([2,2,8,1,15,8,12,9,7,3,11,4,7,14,12])
+y = np.array([100,105,84,105,90,99,90,95,94,100,79,112,91,80,85])
+plt.scatter(x, y, color = '#88c999')
+plt.show()
+
+# In addition you have to create an array with values (from 0 to 100), one value for
+# each point in the scatter plot:
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])
+y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])
+colors = np.array([0, 10, 20, 30, 40, 45, 50, 55, 60, 70, 80, 90, 100])
+plt.scatter(x, y, c=colors, cmap='viridis')
+plt.colorbar()
+plt.show()
+
+# The bar() function takes arguments that describes the layout of the bars
+x = np.array(["A", "B", "C", "D"])
+y = np.array([3, 8, 1, 10])
+plt.bar(x, y, color = "red")
+plt.show()
+
+# Example: Say you ask for the height of 250 people, you might end up with a
+# histogram like this:
+# In Matplotlib, we use the hist() function to create histograms.
+# The hist() function will use an array of numbers to create a histogram, the array is
+# sent into the function as an argument.
+# For simplicity we use NumPy to randomly generate an array with 250 values, where
+# the values will concentrate around 170, and the standard deviation is 10
+
+x = np.random.normal(170, 10, 250)
+plt.hist(x)
+plt.show()
+# With Pyplot, you can use the pie() function to draw pie charts. By default the
+# plotting of the first wedge starts from the x-axis and moves counterclockwise:
+import matplotlib.pyplot as plt
+import numpy as np
+y = np.array([35, 25, 25, 15])
+mylabels = ["Apples", "Bananas", "Cherries", "Dates"]
+plt.pie(y, labels = mylabels)
+plt.legend(title = "Four Fruits:")
+plt.show()
+
+# Normal Distribution
+sns.distplot(random.normal(size=1000), hist=False)
+plt.show()
+# importing packages
+import seaborn as sns
+# loading dataset
+data = sns.load_dataset("iris")
+# draw lineplot
+sns.lineplot(x="sepal_length", y="sepal_width", data=data)
